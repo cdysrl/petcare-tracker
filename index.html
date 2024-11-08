@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <header>
+            <h1>Petcare Tracker<h1>
+        </header>
+        <main>
+            <section>
+                <nav>
+                    <data onclick="switchMyPets()">My Pets</data>
+                    <data onclick="switchToDo()">ToDo</data>
+                    <data onclick="switchCalender()">Calender</data>
+                    <data onclick="switchCarePetGuide()">Pet Care Guide</data>
+                </nav>
+            </section>
+            <section id="myPets"></section>
+            <section hidden="true" id="toDo">ToDO</section>
+            <section  hidden="true" id="calender">Calender</section>
+            <section  hidden="true" id="petCareGuide">Pet Care Guide</section>
+        </main>
+            <section style="display:none;">
+                <div id="myPetClone" data-schedule="">
+                    <img>
+                    <h1></h1>
+                    <div>
+                        <button>✍🏽</button>
+                        <button>🗑️</button>
+                    </div>
+                </div>
+                <div id="newPetForm">
+                    <form onsubmit="petFormSubmit()">
+                        <label for="petname">Pet's Name</label>
+                        <input id="name" type="text" name="petname">
+                        <label for="type">Type:</label>
+                        <select id="type" name="type">
+                            <option value="">Select an Animal</option>
+                            <option value="leopard gecko">Leopard Gecko</option>
+                            <option value="crested gecko">Crested Gecko</option>
+                        </select>    
+                        <button>Submit</button>
+                        
+                    </form>
+                </div>
+                <div id="newButton" onclick="startForm(event)">
+                    <h1>NEW➕</h1>
+                </div>
+            </section>
+        <script src="./assets/script.js"></script>
+    </body>    
+</html>
