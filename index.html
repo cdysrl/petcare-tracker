@@ -22,7 +22,7 @@
         </main>
             <section style="display:none;">
                 <div id="myPetClone" data-schedule="">
-                    <img>
+                    <img src="">
                     <h1></h1>
                     <div>
                         <button>✍🏽</button>
@@ -30,7 +30,7 @@
                     </div>
                 </div>
                 <div id="newPetForm">
-                    <form onsubmit="petFormSubmit()">
+                    <form onsubmit="petFormSubmit(event)">
                         <label for="petname">Pet's Name</label>
                         <input id="name" type="text" name="petname">
                         <label for="type">Type:</label>
@@ -38,9 +38,11 @@
                             <option value="">Select an Animal</option>
                             <option value="leopard gecko">Leopard Gecko</option>
                             <option value="crested gecko">Crested Gecko</option>
+                            <option value="cat">Cat</option>
+                            <option value="dog">Dog</option>
+                            <option value="beta fish">Beta Fish</option>
                         </select>    
                         <button>Submit</button>
-                        
                     </form>
                 </div>
                 <div id="newButton" onclick="startForm(event)">

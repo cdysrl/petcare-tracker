@@ -45,32 +45,49 @@ function readStorage() {
     localStorage.setItem(len, JSON.stringify(obj));
   }
   function petAdd(obj) {
-    const clone = document.body.section.getElementById('myPetClone').cloneNode(true);
+    const clone = document.getElementById('myPetClone').cloneNode(true);
     switch(obj.type) {
         case 'leopard gecko':
-            clone.img.src = "";
+            clone.children[0].src = "./assets/images/leo.png";
             break;
+        case 'crested gecko':
+            clone.children[0].src = "./assets/images/crested.png";
+            break;
+        case 'cat':
+            clone.children[0].src = "./assets/images/cat.png";
+            break;
+        case 'dog':
+            clone.children[0].src = "./assets/images/dog.png";
+            break;
+        case 'beta fish':
+            clone.children[0].src = "./assets/images/beta.png";
+            break;
+
     }//decides which img should go here
-    clone.h1.textContent = obj.name;
+    clone.children[1].textContent = obj.name;
     clone.dataset.schedule = obj.data;
+    clone.id = obj.name;
     document.getElementById('myPets').appendChild(clone);
     
   }
   function newButton() {
     const clone = document.getElementById('newButton').cloneNode(true);
+    clone.id = 'newButton1';
     document.getElementById('myPets').appendChild(clone);
   }
   function startForm(event) {
-    const self = event.target;
-    const clone = document.body.section.getElementById('newPetForm').cloneNode(true);
+    const self = document.getElementById("newButton1");
+    const clone = document.getElementById("newPetForm").cloneNode(true);
+    clone.id = 'newPetForm1';
+    clone.children[0].children[1].id = 'name1';
+    clone.children[0].children[3].id = 'type1';
     document.getElementById('myPets').replaceChild(clone, self);
   }
   function petFormSubmit(event) {
     event.preventDefault();
-    const self = document.getElementById('myPets').getElementById('newPetForm');
-    const form = event.target;
-    const name = form.getElementById('name');
-    const type = form.getElementById('type');
+    const clone = document.getElementById('newPetForm1');
+    const name = document.getElementById('name1');
+    const type = document.getElementById('type1');
     const pet = {
       name: name.value,
       type: type.value,
@@ -79,13 +96,13 @@ function readStorage() {
     storeStorage(pet);
     petAdd(pet);
     newButton();
-    document.getElementById('myPets').removeChild(self);
+    document.getElementById('myPets').removeChild(clone);
     
   }
 
 //This is code that runs in order to create the pet list when it first opens
 const pets = readStorage();
-for (pet of pets) {
+for (const pet of pets) {
   petAdd(pet);
 }
 newButton();
