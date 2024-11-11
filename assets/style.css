@@ -1,0 +1,82 @@
+body, h1, nav, section {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: cursive;
+    background-color: white;
+    color: #333;
+}
+
+header {
+    height: 200px; 
+    background-image: url('http://www.psyeta.org/wp-content/uploads/2022/02/AdobeStock_481854656-1-678x381.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #12c4ca;
+    color: rgb(12, 0, 0);
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 5px solid #333;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 24px; 
+}
+
+nav {
+    background-color: #333;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0; 
+}
+
+nav data {
+    display: block;
+    color: #12c4ca;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s; 
+}
+
+nav data:hover {
+    background-color: white;
+    color: black;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #12c4ca;
+    border-radius: 5px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column; 
+    }
+
+    nav data {
+        padding: 10px; 
+    }
+
+    header {
+        font-size: 20px; 
+    }
+
+    section {
+        margin: 10px 0; 
+        padding: 10px; 
+    }
+}
