@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/js/script.js">
+    <title>Todo Tracker</title>
+  </head>
+  <body>
+    <header>
+      <h1 class="header">Daily To Do</h1>
+    </header>
+
+    <div class="container">
+      <h2>Create Your Pets Todo List</h2>
+      <label for="task-name">This to do list is for:</label>
+      <input type="text" id="task-name" placeholder="Enter your pet's name" />
+
+      <label for="todo-options">Select Task Type:</label>
+      <select id="todo-options">
+        <option value="Fill food tray">Fill Food Tray</option>
+        <option value="Fill water bowl">Fill Water Bowl</option>
+        <option value="Clean litter box">Clean Litter Box</option>
+        <option value="Brush fur">Brush Fur</option>
+        <option value="Give medicine">Give Medicine</option>
+      </select>
+
+      <button onclick="addTask()">Add To List</button>
+
+      <h3>Your Todo List:</h3>
+      <ul id="todo-list" class="todo-list"></ul>
+    </div>
+
+    <footer>
+      <p>Thank you for using PetCare!</p>
+    </footer>
+  </body>
+</html>
