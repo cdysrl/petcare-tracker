@@ -12,14 +12,14 @@ function addTask() {
     }
 
     // Create a new task object
-    const newTask = {
+    const Task = {
         task: selectedOption,
         petName: petName,
         completed: false // Initially, tasks are not completed
     };
 
     // Add task to the todo list
-    currentTodoList.push(newTask);
+    currentTodoList.push(addTask);
     saveToLocalStorage();
     renderTodoList();
 }
