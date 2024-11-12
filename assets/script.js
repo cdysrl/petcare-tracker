@@ -35,8 +35,8 @@ function readStorage() {
     let len = Number(localStorage.getItem('lengthPT'));
     let list = [];
     for (let i=1; i<=len; i++) {
-      if (null === localStorage.getItem(i)) {continue;}
-      list.push(JSON.parse(localStorage.getItem(i)));
+      if (null === localStorage.getItem((i + 'PT'))) {continue;}
+      list.push(JSON.parse(localStorage.getItem((i + 'PT'))));
     }
   return list;
   }
@@ -45,7 +45,7 @@ function readStorage() {
     len = localStorage.getItem('lengthPT');
     len++;
     localStorage.setItem('lengthPT', len);
-    localStorage.setItem(len, JSON.stringify(obj));
+    localStorage.setItem((len + 'PT'), JSON.stringify(obj));
   }
   //This function adds a pet to my pets page based on the input object
   function petAdd(obj) {
@@ -119,7 +119,7 @@ newButton();
 function deletePet(event) {
   const self = event.target;
   const clone = self.parentElement.parentElement.parentElement;
-  localStorage.removeItem(clone.dataset.index);
+  localStorage.removeItem((clone.dataset.index) + 'PT');
   document.getElementById('myPets').removeChild(clone);
 }
 
@@ -141,7 +141,7 @@ function resubmit(event) {
   clone.children[0].children[0].textContent =  clone.children[1].children[0].children[1].value;
   clone.dataset.type =   clone.children[1].children[0].children[3].value;
   clone.id = clone.children[1].children[0].children[1].value;
-  const obj = JSON.parse(localStorage.getItem(clone.dataset.index));
+  const obj = JSON.parse(localStorage.getItem((clone.dataset.index) + 'PT'));
   obj.name = clone.id;
   obj.type = clone.dataset.type;
   switch(obj.type) {
@@ -162,7 +162,7 @@ function resubmit(event) {
         break;
 
   }//decides which img should go here
-  localStorage.setItem(clone.dataset.index, JSON.stringify(obj));
+  localStorage.setItem((clone.dataset.index + 'PT'), JSON.stringify(obj));
   clone.children[0].hidden = false;
   clone.children[1].hidden = true;
 }

@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>Petcare Tracker</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/base-min.css"> -->
     </head>
     <body>
         <header>
@@ -15,11 +18,13 @@
                     <data onclick="switchCarePetGuide()">Pet Care Guide</data>
                 </nav>
             </section>
+            <!-- The four following Sections act as the diffrent tabs for the webpage -->
             <section id="myPets"></section>
             <section hidden="true" id="toDo">ToDO</section>
             <section  hidden="true" id="calender">Calender</section>
             <section  hidden="true" id="petCareGuide">Pet Care Guide</section>
         </main>
+            <!-- Template html for the My Pets page-->>
             <section style="display:none;">
                 <div id="myPetClone" data-type="", data-index="">
                     <div>
