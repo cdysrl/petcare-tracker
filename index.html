@@ -1,98 +1,125 @@
 <!DOCTYPE html>
 
 <html lang="en">
-    <head>
-        <link rel="stylesheet" href="./assets/style.css">
-    
-        <meta charset="UTF-8">
-        <title>Petcare Tracker</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/base-min.css"> -->
-    </head>
-    <body>
-        <header>
-            <h1>Petcare Tracker</h1>
-        </header>
-        <main>
-            <section>
-                <nav>
-                    <data onclick="switchMyPets()">My Pets</data>
-                    <data onclick="switchToDo()">ToDo</data>
-                    <data onclick="switchCalender()">Calender</data>
-                    <data onclick="switchCarePetGuide()">Pet Care Guide</data>
-                </nav>
-            </section>
-            <!-- The four following Sections act as the diffrent tabs for the webpage -->
-            <section id="myPets"></section>
-            <section hidden="true" id="toDo">ToDO</section>
-            <section  hidden="true" id="calender">Calender</section>
 
-            <!-- Pet Care Guide Section -->
+<head>
+    <link rel="stylesheet" href="./assets/style.css">
 
-            <section  hidden="true" id="petCareGuide">
-                <h2>Pet Care Guide</h2>
-                <label for="petSpecies">Choose an animal:</label>
-                <select  id="petSpecies" onchange=displayContent()>
-                    <option value="">-- Selet --</option>
+    <meta charset="UTF-8">
+    <title>Petcare Tracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/base-min.css"> -->
+</head>
+
+<body>
+    <header>
+        <h1>Petcare Tracker</h1>
+    </header>
+    <main>
+        <section>
+            <nav>
+                <data onclick="switchMyPets()">My Pets</data>
+                <data onclick="switchToDo()">ToDo</data>
+                <data onclick="switchCalender()">Calender</data>
+                <data onclick="switchCarePetGuide()">Pet Care Guide</data>
+            </nav>
+        </section>
+        <!-- The four following Sections act as the diffrent tabs for the webpage -->
+        <section id="myPets"></section>
+        <section hidden="true" id="toDo">
+            <h1 class="header">Daily To Do</h1>
+            <div class="container">
+                <h2>Create Your Pets Todo List</h2>
+                <label for="task-name">This to do list is for:</label>
+                <input type="text" id="task-name" placeholder="Enter your pet's name" />
+
+                <label for="todo-options">Select Task Type:</label>
+                <select id="todo-options">
+                    <option value="Fill food tray">Fill Food Tray</option>
+                    <option value="Fill water bowl">Fill Water Bowl</option>
+                    <option value="Clean litter box">Clean Litter Box</option>
+                    <option value="Brush fur">Brush Fur</option>
+                    <option value="Give medicine">Give Medicine</option>
+                </select>
+
+                <button onclick="addTask()">Add to list!</button>
+
+                <h3>Your Todo List:</h3>
+                <ul id="todo-list" class="todo-list"></ul>
+            </div>
+        </section>
+        <section hidden="true" id="calender">Calender</section>
+
+        <!-- Pet Care Guide Section -->
+
+        <section hidden="true" id="petCareGuide">
+            <h2>Pet Care Guide</h2>
+            <label for="petSpecies">Choose an animal:</label>
+            <select id="petSpecies" onchange=displayContent()>
+                <option value="">-- Selet --</option>
+                <option value="cat">Cat</option>
+                <option value="dog">Dog</option>
+                <option value="leopardGecko">Leopard Gecko</option>
+                <option value="crestedGecko">Crested Gecko</option>
+                <option value="bettaFish">Betta Fish</option>
+            </select>
+            <div id="petCareGuideInformation"></div>
+        </section>
+
+
+    </main>
+    <!-- Template html for the My Pets page-->>
+    <section style="display:none;">
+        <div id="myPetClone" data-type="" , data-index="">
+            <div>
+                <h1></h1>
+                <img src="" width="200" height="200">
+                <div>
+                    <button onclick="editPet(event)">✍🏽</button>
+                    <button onclick="deletePet(event)">🗑️</button>
+                </div>
+            </div>
+            <div hidden>
+                <form onsubmit="resubmit(event)">
+                    <label for="petname">Pet's Name</label>
+                    <input id="" type="text" name="petname">
+                    <label for="type">Type:</label>
+                    <select id="" name="type">
+                        <option value="">Select an Animal</option>
+                        <option value="leopard gecko">Leopard Gecko</option>
+                        <option value="crested gecko">Crested Gecko</option>
+                        <option value="cat">Cat</option>
+                        <option value="dog">Dog</option>
+                        <option value="beta fish">Beta Fish</option>
+                    </select>
+                    <button>Submit</button>
+                </form>
+            </div>
+        </div>
+        <div id="newPetForm">
+            <form onsubmit="petFormSubmit(event)">
+                <label for="petname">Pet's Name</label>
+                <input id="name" type="text" name="petname">
+                <label for="type">Type:</label>
+                <select id="type" name="type">
+                    <option value="">Select an Animal</option>
+                    <option value="leopard gecko">Leopard Gecko</option>
+                    <option value="crested gecko">Crested Gecko</option>
                     <option value="cat">Cat</option>
                     <option value="dog">Dog</option>
-                    <option value="leopardGecko">Leopard Gecko</option>
-                    <option value="crestedGecko">Crested Gecko</option>
-                    <option value="bettaFish">Betta Fish</option>
+                    <option value="beta fish">Beta Fish</option>
                 </select>
-                <div id="petCareGuideInformation"></div>
-            </section>
+                <button>Submit</button>
+            </form>
+        </div>
+        <div id="newButton" onclick="startForm(event)">
+            <h1>NEW➕</h1>
+        </div>
+    </section>
+    <footer>
+        <p>Thank you for using PetCare!</p>
+    </footer>
+    <script src="./assets/js/script.js"></script>
+</body>
 
-
-        </main>
-            <!-- Template html for the My Pets page-->>
-            <section style="display:none;">
-                <div id="myPetClone" data-type="", data-index="">
-                    <div>
-                        <h1></h1>
-                        <img src="" width="200" height="200">
-                        <div>
-                            <button onclick="editPet(event)">✍🏽</button>
-                            <button onclick="deletePet(event)">🗑️</button>
-                        </div>
-                    </div>
-                    <div hidden>
-                        <form onsubmit="resubmit(event)">
-                            <label for="petname">Pet's Name</label>
-                            <input id="" type="text" name="petname">
-                            <label for="type">Type:</label>
-                            <select id="" name="type">
-                                <option value="">Select an Animal</option>
-                                <option value="leopard gecko">Leopard Gecko</option>
-                                <option value="crested gecko">Crested Gecko</option>
-                                <option value="cat">Cat</option>
-                                <option value="dog">Dog</option>
-                                <option value="beta fish">Beta Fish</option>
-                            </select>    
-                            <button>Submit</button>
-                        </form>
-                    </div>    
-                </div>
-                <div id="newPetForm">
-                    <form onsubmit="petFormSubmit(event)">
-                        <label for="petname">Pet's Name</label>
-                        <input id="name" type="text" name="petname">
-                        <label for="type">Type:</label>
-                        <select id="type" name="type">
-                            <option value="">Select an Animal</option>
-                            <option value="leopard gecko">Leopard Gecko</option>
-                            <option value="crested gecko">Crested Gecko</option>
-                            <option value="cat">Cat</option>
-                            <option value="dog">Dog</option>
-                            <option value="beta fish">Beta Fish</option>
-                        </select>    
-                        <button>Submit</button>
-                    </form>
-                </div>
-                <div id="newButton" onclick="startForm(event)">
-                    <h1>NEW➕</h1>
-                </div>
-            </section>
-        <script src="./assets/script.js"></script>
-    </body>    
 </html>
