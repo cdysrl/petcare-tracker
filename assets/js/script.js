@@ -126,14 +126,20 @@ function displayContent() {
   contentDiv.innerHTML = '';
 
   if (choice === 'dog') {
+      // Dog Image  
       const image = document.createElement('img');
       image.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Chin_posing.jpg/1920px-Chin_posing.jpg";
       image.alt = "Japan Chin Dog";
       
+      // Image Citation
+      const cite = document.createElement('cite');
+      cite.textContent = 'Source: Wikipedia';
+      
+      // Dog List Heading
       const text = document.createElement('h3');
       text.textContent = 'Three Care Tips for Dogs';
-
-      const orderedList = document.createElement('ol');
+      // Dog Unordered List
+      const unorderedList = document.createElement('ul');
 
       // Item 1 - Dog
       const listItem1 = document.createElement('li');
@@ -156,32 +162,40 @@ function displayContent() {
       details3.textContent = 'Help keep your dog clean and reduce shedding with frequent brushing. Check for fleas and ticks daily during warm weather. Most dogs don\'t need to be bathed more than a few times a year. Before bathing, comb or cut out all mats from the coat. Carefully rinse all soap out of the coat, or the dirt will stick to soap residue. Please visit our Dog Grooming Tips page for more information.';
       details3.classList.add('details');
 
-      orderedList.appendChild(listItem1);
+      unorderedList.appendChild(listItem1);
       listItem1.appendChild(details1);
-      orderedList.appendChild(listItem2);
+      unorderedList.appendChild(listItem2);
       listItem2.appendChild(details2);
-      orderedList.appendChild(listItem3);
+      unorderedList.appendChild(listItem3);
       listItem3.appendChild(details3); 
       
       // Dog - Source
       const infoSource = document.createElement('a');
       infoSource.href = 'https://www.aspca.org/pet-care/dog-care/general-dog-care';
       infoSource.textContent = 'Care Tips Source'
-
+      
+      // Adding Content
       contentDiv.appendChild(image);
+      contentDiv.appendChild(cite);
       contentDiv.appendChild(text);
-      contentDiv.appendChild(orderedList);
+      contentDiv.appendChild(unorderedList);
       contentDiv.appendChild(infoSource);
 
   } else if (choice === 'cat') {
+      // Cat Image
       const image = document.createElement('img');
       image.src = "https://upload.wikimedia.org/wikipedia/commons/2/25/Siam_lilacpoint.jpg";
       image.alt = "Siamese Cat";
       
+      // Image Citation
+      const cite = document.createElement('cite');
+      cite.textContent = 'Source: Wikipedia';
+      
+      // List Header
       const text = document.createElement('h3');
       text.textContent = 'Three Care Tips for Cats';
-      
-      const orderedList = document.createElement('ol');
+      // Unordered List - Cat
+      const unorderedList = document.createElement('ul');
 
       // Item 1 - Cat
       const listItem1 = document.createElement('li');
@@ -204,11 +218,11 @@ function displayContent() {
       details3.textContent = 'To pick up your cat, place one hand behind the front legs and another under the hindquarters. Lift gently. Never pick up a cat by the scruff of the neck or by the front legs.';
       details3.classList.add('details');
 
-      orderedList.appendChild(listItem1);
+      unorderedList.appendChild(listItem1);
       listItem1.appendChild(details1);
-      orderedList.appendChild(listItem2);
+      unorderedList.appendChild(listItem2);
       listItem2.appendChild(details2);
-      orderedList.appendChild(listItem3);
+      unorderedList.appendChild(listItem3);
       listItem3.appendChild(details3); 
 
       // Cat - Source
@@ -217,18 +231,23 @@ function displayContent() {
       infoSource.textContent = 'Care Tips Source'
 
       contentDiv.appendChild(image);
+      contentDiv.appendChild(cite);
       contentDiv.appendChild(text);
-      contentDiv.appendChild(orderedList);
+      contentDiv.appendChild(unorderedList);
       contentDiv.appendChild(infoSource);
   } else if (choice === 'leopardGecko') {
       const image = document.createElement('img');
       image.src = "https://upload.wikimedia.org/wikipedia/commons/5/5b/Eublepharis_macularius1.jpg";
       image.alt = "Leopard Gecko";
       
+      // Image Citation
+      const cite = document.createElement('cite');
+      cite.textContent = 'Source: Wikipedia';
+
       const text = document.createElement('h3');
       text.textContent = 'Three Care Tips for Leopard Geckos';
       
-      const orderedList = document.createElement('ol');
+      const unorderedList = document.createElement('ul');
 
       // Item 1 - Leopard Gecko
       const listItem1 = document.createElement('li');
@@ -251,11 +270,11 @@ function displayContent() {
       details3.textContent = 'Keep their habitat like the warm climate they come from. You should have a warm side and a cool side of the tank. To do this, put a heat light on one side of the habitat, and measure the temperature with a thermometer at each end.';
       details3.classList.add('details');
 
-      orderedList.appendChild(listItem1);
+      unorderedList.appendChild(listItem1);
       listItem1.appendChild(details1);
-      orderedList.appendChild(listItem2);
+      unorderedList.appendChild(listItem2);
       listItem2.appendChild(details2);
-      orderedList.appendChild(listItem3);
+      unorderedList.appendChild(listItem3);
       listItem3.appendChild(details3); 
 
       // Leopard Gecko - Source
@@ -264,18 +283,22 @@ function displayContent() {
       infoSource.textContent = 'Care Tips Source'
 
       contentDiv.appendChild(image);
+      contentDiv.appendChild(cite);
       contentDiv.appendChild(text);
-      contentDiv.appendChild(orderedList);
+      contentDiv.appendChild(unorderedList);
       contentDiv.appendChild(infoSource);
   } else if (choice === 'crestedGecko') {
       const image = document.createElement('img');
       image.src = "https://upload.wikimedia.org/wikipedia/commons/d/d9/Crested_gecko_-_1.jpg";
       image.alt = "Crested Gecko";
       
+      const cite = document.createElement('cite');
+      cite.textContent = 'Source: Wikipedia'
+
       const text = document.createElement('h3');
       text.textContent = 'Three Care Tips for Crested Geckos';
       
-      const orderedList = document.createElement('ol');
+      const unorderedList = document.createElement('ul');
 
       // Item 1 - Crested Gecko
       const listItem1 = document.createElement('li');
@@ -298,11 +321,11 @@ function displayContent() {
       details3.textContent = 'Crested Geckos can drop their tails if handled improperly, however most cresteds are reluctant to drop their tails unless the tail is pinched or squeezed somehow. Most tail loss occurs from aggressive cage mates or from accidentally closing the tail in a screen top or door. Careful handling does not usually result in tail loss. Tail loss is a normal defense mechanism and is not a medical emergency. The gecko will recover quickly and does not require any special care. Crested geckos are one of the few geckos that will not regenerate a new tail.';
       details3.classList.add('details');
 
-      orderedList.appendChild(listItem1);
+      unorderedList.appendChild(listItem1);
       listItem1.appendChild(details1);
-      orderedList.appendChild(listItem2);
+      unorderedList.appendChild(listItem2);
       listItem2.appendChild(details2);
-      orderedList.appendChild(listItem3);
+      unorderedList.appendChild(listItem3);
       listItem3.appendChild(details3); 
 
       // Crested Gecko - Source
@@ -311,18 +334,22 @@ function displayContent() {
       infoSource.textContent = 'Care Tips Source'
 
       contentDiv.appendChild(image);
+      contentDiv.appendChild(cite);
       contentDiv.appendChild(text);
-      contentDiv.appendChild(orderedList);
+      contentDiv.appendChild(unorderedList);
       contentDiv.appendChild(infoSource);
   } else if (choice === 'bettaFish') {
       const image = document.createElement('img');
       image.src = "https://upload.wikimedia.org/wikipedia/commons/b/b8/Kampffisch_betta_splendenscele4.jpg";
       image.alt = "Betta Fish";
       
+      const cite = document.createElement('cite');
+      cite.textContent = 'Source: Wikipedia'
+
       const text = document.createElement('h3');
       text.textContent = 'Three Care Tips for Betta Fish';
       
-      const orderedList = document.createElement('ol');
+      const unorderedList = document.createElement('ul');
 
       // Item 1 - Betta Fish
       const listItem1 = document.createElement('li');
@@ -345,11 +372,11 @@ function displayContent() {
       details3.textContent = 'To keep a betta fish healthy, ensure the water temperature is maintained at 72–82 F.';
       details3.classList.add('details');
 
-      orderedList.appendChild(listItem1);
+      unorderedList.appendChild(listItem1);
       listItem1.appendChild(details1);
-      orderedList.appendChild(listItem2);
+      unorderedList.appendChild(listItem2);
       listItem2.appendChild(details2);
-      orderedList.appendChild(listItem3);
+      unorderedList.appendChild(listItem3);
       listItem3.appendChild(details3); 
 
       // Betta Fish - Source
@@ -358,8 +385,9 @@ function displayContent() {
       infoSource.textContent = 'Care Tips Source'
 
       contentDiv.appendChild(image);
+      contentDiv.appendChild(cite);
       contentDiv.appendChild(text);
-      contentDiv.appendChild(orderedList);
+      contentDiv.appendChild(unorderedList);
       contentDiv.appendChild(infoSource);
   }
 }
