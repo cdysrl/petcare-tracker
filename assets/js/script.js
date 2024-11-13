@@ -414,6 +414,14 @@ function resubmit(event) {
   clone.children[0].hidden = false;
   clone.children[1].hidden = true;
 }
+function petNameList() {
+    const pets = readStorage();
+    const names = [];
+    for (const pet of pets){
+        names.push(pet.name);
+    }
+    return names;
+}
 //ToDo page's java script
 let currentTodoList = [];
 
@@ -456,15 +464,15 @@ function renderTodoList() {
     // Render the tasks in the currentTodoList
     currentTodoList.forEach((item, index) => {
         const taskElement = document.createElement('li');
-        taskElement.classList.add('todo-item');
+        taskElement.classList.add('todo-item');//???
         
         taskElement.innerHTML = `
             <input type="checkbox" ${item.completed ? 'checked' : ''} 
             id="task-${index}" onclick="toggleCompletion(${index})">
             <span>${item.task}</span> <strong>for ${item.petName}</strong>
-        `;
+        `;//???
         
-        todoListElement.appendChild(taskElement);
+        todoListElement.appendChild(taskElement);//???
     });
 }
 
