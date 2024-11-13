@@ -19,18 +19,18 @@
         <section>
             <nav>
                 <data onclick="switchMyPets()">My Pets</data>
-                <data onclick="switchToDo()">ToDo</data>
-                <data onclick="switchCalender()">Calender</data>
+                <data onclick="switchToDo()">To-Do List</data>
+                <data onclick="switchcalendar()">Calendar</data>
                 <data onclick="switchCarePetGuide()">Pet Care Guide</data>
             </nav>
         </section>
         <!-- The four following Sections act as the diffrent tabs for the webpage -->
         <section id="myPets"></section>
         <section hidden="true" id="toDo">
-            <h1 class="header">Daily To Do</h1>
+            <h1 class="header">Daily To-Do</h1>
             <div class="container">
-                <h2>Create Your Pets Todo List</h2>
-                <label for="task-name">This to do list is for:</label>
+                <h2>Create Your Pet's To-Do List</h2>
+                <label for="task-name">This to-do list is for:</label>
                 <input type="text" id="task-name" placeholder="Enter your pet's name" />
 
                 <label for="todo-options">Select Task Type:</label>
@@ -44,11 +44,11 @@
 
                 <button onclick="addTask()">Add to list!</button>
 
-                <h3>Your Todo List:</h3>
+                <h3>Your To-do List:</h3>
                 <ul id="todo-list" class="todo-list"></ul>
             </div>
         </section>
-        <section hidden="true" id="calender">Calender</section>
+        <section hidden="true" id="calendar">Calendar</section>
 
         <!-- Pet Care Guide Section -->
 
@@ -90,7 +90,7 @@
                         <option value="crested gecko">Crested Gecko</option>
                         <option value="cat">Cat</option>
                         <option value="dog">Dog</option>
-                        <option value="beta fish">Beta Fish</option>
+                        <option value="betta fish">Betta Fish</option>
                     </select>
                     <label for="petInfo">Pet Description:</label>
                     <input id='' type="text" name="petInfo">
@@ -109,7 +109,7 @@
                     <option value="crested gecko">Crested Gecko</option>
                     <option value="cat">Cat</option>
                     <option value="dog">Dog</option>
-                    <option value="beta fish">Beta Fish</option>
+                    <option value="betta fish">Betta Fish</option>
                 </select>
                 <label for="petInfo">Pet Description:</label>
                 <input id='petInfo' type="text" name="petInfo">
