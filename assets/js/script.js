@@ -75,9 +75,9 @@ function petAdd(obj) {
             clone.children[0].children[0].children[1].title = "Dog";
             break;
         case 'beta fish':
-            clone.children[0].children[0].children[1].src = "./assets/images/beta.jpg";
-            clone.children[0].children[0].children[1].alt = "Beta Fish";
-            clone.children[0].children[0].children[1].title = "Beta Fish Source: https://cdn.mos.cms.futurecdn.net/RY2EpSo74hvYXyAVpTN2Gg-1200-80.jpg";
+            clone.children[0].children[0].children[1].src = "./assets/images/betta.jpg";
+            clone.children[0].children[0].children[1].alt = "Betta Fish";
+            clone.children[0].children[0].children[1].title = "Betta Fish Source: https://cdn.mos.cms.futurecdn.net/RY2EpSo74hvYXyAVpTN2Gg-1200-80.jpg";
             break;
 
     }//decides which img should go here
@@ -461,9 +461,9 @@ function resubmit(event) {
             clone.children[0].children[0].children[1].title = "Dog";
             break;
         case 'beta fish':
-            clone.children[0].children[0].children[1].src = "./assets/images/beta.jpg";
-            clone.children[0].children[0].children[1].alt = "Beta Fish";
-            clone.children[0].children[0].children[1].title = "Beta Fish Source:https://cdn.mos.cms.futurecdn.net/RY2EpSo74hvYXyAVpTN2Gg-1200-80.jpg";//This image says the source because the original picture is from the web.
+            clone.children[0].children[0].children[1].src = "./assets/images/betta.jpg";
+            clone.children[0].children[0].children[1].alt = "Betta Fish";
+            clone.children[0].children[0].children[1].title = "Betta Fish Source:https://cdn.mos.cms.futurecdn.net/RY2EpSo74hvYXyAVpTN2Gg-1200-80.jpg";//This image says the source because the original picture is from the web.
             break;
 
     }//decides which img should go here
