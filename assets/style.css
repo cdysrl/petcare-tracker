@@ -5,8 +5,8 @@ body, h1, nav, section {
 }
 
 body {
-    font-family: cursive;
-    background-color: white;
+    font-family: 'Cursive', sans-serif; 
+    background-color: #f0f4f8; 
     color: #333;
 }
 
@@ -16,17 +16,27 @@ header {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-color: #12c4ca;
-    color: rgb(12, 0, 0);
+    background-color: #008cba; 
+    color: #030303; 
     text-align: center;
     padding: 20px 0;
-    border-bottom: 5px solid #333;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-bottom: 5px solid #005f7f; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     font-size: 24px; 
+    font-family: 'Fredoka One', cursive; 
+    animation: fadeIn 1s ease-in; 
+}
+
+.title-box {
+    display: inline-block; 
+    background-color: rgba(255, 255, 255, 0.8); 
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
 }
 
 nav {
-    background-color: #333;
+    background-color: #005f7f; 
     overflow: hidden;
     display: flex;
     justify-content: space-around;
@@ -35,48 +45,49 @@ nav {
 
 nav data {
     display: block;
-    color: #12c4ca;
+    color: #ffffff; 
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s; 
+    animation: bounceIn 0.5s;
 }
 
+
 nav data:hover {
-    background-color: white;
-    color: black;
+    background-color: #008cba; 
+    color: #ffffff; 
 }
 
 main {
     padding: 20px;
+    font-family: 'Pacifico', cursive; 
 }
+
+main img {
+    width: 200px;
+    height: 200px;
+    
+}
+
 
 section {
     margin: 20px 0;
     padding: 15px;
-    background-color: #12c4ca;
+    background-color: #ffffff; 
+    border: 1px solid #e0e0e0; 
     border-radius: 5px;
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
 }
 
 
+#petCareGuide {
+    font-family: 'Quicksand', sans-serif; 
+}
 
-@media (max-width: 768px) {
-    nav {
-        flex-direction: column; 
-    }
-
-    nav data {
-        padding: 10px; 
-    }
-
-    header {
-        font-size: 20px; 
-    }
-
-    section {
-        margin: 10px 0; 
-        padding: 10px; 
-    }
+#petCareGuide h2,
+#petCareGuide label,
+#petCareGuide select {
+    font-family: 'Quicksand', sans-serif; 
 }
