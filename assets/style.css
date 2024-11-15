@@ -24,6 +24,7 @@ header {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     font-size: 24px; 
     font-family: 'Fredoka One', cursive; 
+    animation: fadeIn 1s ease-in; /* Fade-in animation */
 }
 
 .title-box {
@@ -50,7 +51,9 @@ nav data {
     text-decoration: none;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s; 
+    animation: bounceIn 0.5s;
 }
+
 
 nav data:hover {
     background-color: #008cba; 
@@ -65,7 +68,9 @@ main {
 main img {
     width: 200px;
     height: 200px;
+    
 }
+
 
 section {
     margin: 20px 0;
@@ -76,6 +81,7 @@ section {
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
 }
 
+
 #petCareGuide {
     font-family: 'Quicksand', sans-serif; 
 }
@@ -84,37 +90,4 @@ section {
 #petCareGuide label,
 #petCareGuide select {
     font-family: 'Quicksand', sans-serif; 
-}
-
-#newButton {
-    cursor: pointer; 
-    display: inline-block; 
-    padding: 10px; 
-    background-color: #008cba; 
-    color: #ffffff; 
-    border-radius: 5px; 
-    text-align: center; 
-}
-
-#newButton:hover {
-    background-color: #005f7f; 
-}
-
-@media (max-width: 768px) {
-    nav {
-        flex-direction: column; 
-    }
-
-    nav data {
-        padding: 10px; 
-    }
-
-    header {
-        font-size: 20px; 
-    }
-
-    section {
-        margin: 10px 0; 
-        padding: 10px; 
-    }
 }
