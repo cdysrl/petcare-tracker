@@ -31,90 +31,107 @@ function switchCarePetGuide() {
 //This code is the functions for pulling from your local storage and making a list of your pets
 //this if statement makes sure if this is your first time using this site its localStorage for lengthPT is set to zero
 if (localStorage.getItem('lengthPT') === null) {
- localStorage.setItem('lengthPT','0');
+    localStorage.setItem('lengthPT', '0');
 }
 //this function creates an array of objecsts being stored for myPets page from localStorage
 function readStorage() {
     let len = Number(localStorage.getItem('lengthPT'));
     let list = [];
-    for (let i=1; i<=len; i++) {
-      if (null === localStorage.getItem((i + 'PT'))) {continue;}
-      list.push(JSON.parse(localStorage.getItem((i + 'PT'))));
+    for (let i = 1; i <= len; i++) {
+        if (null === localStorage.getItem((i + 'PT'))) { continue; }
+        list.push(JSON.parse(localStorage.getItem((i + 'PT'))));
     }
-  return list;
-  }
-  //this function stores an object to localStorage for the myPet page.
-  function storeStorage(obj) {
+    return list;
+}
+//this function stores an object to localStorage for the myPet page.
+function storeStorage(obj) {
     len = localStorage.getItem('lengthPT');
     len++;
     localStorage.setItem('lengthPT', len);
     localStorage.setItem((len + 'PT'), JSON.stringify(obj));
-  }
-  //This function adds a pet to my pets page based on the input object
-  function petAdd(obj) {
+}
+//This function adds a pet to my pets page based on the input object
+function petAdd(obj) {
     const clone = document.getElementById('myPetClone').cloneNode(true);
-    switch(obj.type) {
+    switch (obj.type) {
         case 'leopard gecko':
-            clone.children[0].children[1].src = "./assets/images/leo.jpg";
+            clone.children[0].children[0].children[1].src = "./assets/images/leo.jpg";
+            clone.children[0].children[0].children[1].alt = "Leopard Gecko";
+            clone.children[0].children[0].children[1].title = "Leopard Gecko";
             break;
         case 'crested gecko':
-            clone.children[0].children[1].src = "./assets/images/crested.jpg";
+            clone.children[0].children[0].children[1].src = "./assets/images/crested.jpg";
+            clone.children[0].children[0].children[1].alt = "Crested Gecko";
+            clone.children[0].children[0].children[1].title = "Crested Gecko";
             break;
         case 'cat':
-            clone.children[0].children[1].src = "./assets/images/cat.jpg";
+            clone.children[0].children[0].children[1].src = "./assets/images/cat.jpg";
+            clone.children[0].children[0].children[1].alt = "Cat";
+            clone.children[0].children[0].children[1].title = "Cat";
             break;
         case 'dog':
-            clone.children[0].children[1].src = "./assets/images/dog.jpg";
+            clone.children[0].children[0].children[1].src = "./assets/images/dog.jpg";
+            clone.children[0].children[0].children[1].alt = "Dog";
+            clone.children[0].children[0].children[1].title = "Dog";
             break;
-        case 'betta fish':
-            clone.children[0].children[1].src = "./assets/images/betta.jpg";
+        case 'beta fish':
+            clone.children[0].children[0].children[1].src = "./assets/images/betta.jpg";
+            clone.children[0].children[0].children[1].alt = "Betta Fish";
+            clone.children[0].children[0].children[1].title = "Betta Fish Source: https://cdn.mos.cms.futurecdn.net/RY2EpSo74hvYXyAVpTN2Gg-1200-80.jpg";
             break;
 
     }//decides which img should go here
-    clone.children[0].children[0].textContent = obj.name;
+    clone.children[0].children[0].children[0].textContent = obj.name;
     clone.dataset.type = obj.type;
     clone.dataset.index = obj.data;
     clone.id = obj.name;
+    clone.children[0].children[1].textContent = obj.petInfo;//!!!
+    clone.children[0].children[1].classList = (obj.petInfo === "")? "": "info-box";
     document.getElementById('myPets').appendChild(clone);
-    
-  }
-  //The newButton function adds an element to the end of the my pets page that when clicked on opens a form to add a new pet
-  function newButton() {
+    clone.children[0].setAttribute('style', 'display:flex;');
+
+}
+//The newButton function adds an element to the end of the my pets page that when clicked on opens a form to add a new pet
+function newButton() {
     const clone = document.getElementById('newButton').cloneNode(true);
     clone.id = 'newButton1';
     document.getElementById('myPets').appendChild(clone);
-  }
-  //The startForm function is the activated function when new+ button is clicked that replaces it with the form
-  function startForm(event) {
+}
+//The startForm function is the activated function when new+ button is clicked that replaces it with the form
+function startForm(event) {
     const self = document.getElementById("newButton1");
     const clone = document.getElementById("newPetForm").cloneNode(true);
     clone.id = 'newPetForm1';
-    clone.children[0].children[1].id = 'name1';
-    clone.children[0].children[3].id = 'type1';
+    clone.children[0].children[2].id = 'name1';
+    clone.children[0].children[6].id = 'type1';
+    clone.children[0].children[10].id = 'petInfo1';//!!!
     document.getElementById('myPets').replaceChild(clone, self);
-  }
-  //This function is fired by the submit button on the new pet form that turns the form into an element with the new pet info and then calls the newbutton function to create a new+ button
-  function petFormSubmit(event) {
+}
+//This function is fired by the submit button on the new pet form that turns the form into an element with the new pet info and then calls the newbutton function to create a new+ button
+function petFormSubmit(event) {
     event.preventDefault();
     const clone = document.getElementById('newPetForm1');
     const name = document.getElementById('name1');
     const type = document.getElementById('type1');
+    const petInfo = document.getElementById('petInfo1');
+    if (name.value === '' || type.value === '') {return}//prevents the form from submitting if either of these text fields are not filled out.
     const pet = {
-      name: name.value,
-      type: type.value,
-      data: (Number(localStorage.getItem('lengthPT')) + 1)
-    }
+        name: name.value,
+        type: type.value,
+        data: (Number(localStorage.getItem('lengthPT')) + 1),
+        petInfo: petInfo.value
+    };
     storeStorage(pet);
     petAdd(pet);
     newButton();
     document.getElementById('myPets').removeChild(clone);
-    
-  }
+
+}
 
 //This is code that runs in order to create the pet list when it first opens
 const pets = readStorage();
 for (const pet of pets) {
-  petAdd(pet);
+    petAdd(pet);
 }
 newButton();
 
@@ -389,63 +406,77 @@ function displayContent() {
       contentDiv.appendChild(text);
       contentDiv.appendChild(unorderedList);
       contentDiv.appendChild(infoSource);
-  }
-}
+  }}
 //this function is the one that deletes pets from mypets list
 function deletePet(event) {
-  const self = event.target;
-  const clone = self.parentElement.parentElement.parentElement;
-  localStorage.removeItem((clone.dataset.index) + 'PT');
-  document.getElementById('myPets').removeChild(clone);
+    const self = event.target;
+    const clone = self.parentElement.parentElement.parentElement.parentElement;
+    localStorage.removeItem((clone.dataset.index) + 'PT');
+    document.getElementById('myPets').removeChild(clone);
 }
 
 //this function is for editing your pets on my pet page
 function editPet(event) {
-  const self = event.target;
-  const clone = self.parentElement.parentElement.parentElement;
-  clone.children[1].children[0].children[1].value = clone.id;
-  clone.children[1].children[0].children[3].value = clone.dataset.type;
-  clone.children[0].hidden = true;
-  clone.children[1].hidden = false;
+    const self = event.target;
+    const clone = self.parentElement.parentElement.parentElement.parentElement;
+    clone.children[1].children[0].children[2].value = clone.id;
+    clone.children[1].children[0].children[6].value = clone.dataset.type;
+    clone.children[1].children[0].children[10].value = clone.children[0].children[1].textContent ;//!!!
+    clone.children[1].hidden = false;
+    clone.children[0].setAttribute('style', 'display:none;');
 }
 
 //this function resubmit the pet form for editing your pets on the my pet page
 function resubmit(event) {
-  event.preventDefault();
-  const self = event.target;
-  const clone = self.parentElement.parentElement;
-  clone.children[0].children[0].textContent =  clone.children[1].children[0].children[1].value;
-  clone.dataset.type =   clone.children[1].children[0].children[3].value;
-  clone.id = clone.children[1].children[0].children[1].value;
-  const obj = JSON.parse(localStorage.getItem((clone.dataset.index) + 'PT'));
-  obj.name = clone.id;
-  obj.type = clone.dataset.type;
-  switch(obj.type) {
-    case 'leopard gecko':
-        clone.children[0].children[1].src = "./assets/images/leo.jpg";
-        break;
-    case 'crested gecko':
-        clone.children[0].children[1].src = "./assets/images/crested.jpg";
-        break;
-    case 'cat':
-        clone.children[0].children[1].src = "./assets/images/cat.jpg";
-        break;
-    case 'dog':
-        clone.children[0].children[1].src = "./assets/images/dog.jpg";
-        break;
-    case 'betta fish':
-        clone.children[0].children[1].src = "./assets/images/betta.jpg";
-        break;
+    event.preventDefault();
+    const self = event.target;
+    const clone = self.parentElement.parentElement;
+    if(clone.children[1].children[0].children[6].value === "" || clone.children[1].children[0].children[2].value === "") {return}//This cancels the form submitting if either of these data fields are empty.
+    clone.children[0].children[0].children[0].textContent = clone.children[1].children[0].children[2].value;
+    clone.dataset.type = clone.children[1].children[0].children[6].value;
+    clone.id = clone.children[1].children[0].children[2].value;
+    clone.children[0].children[1].textContent = clone.children[1].children[0].children[10].value;//!!!
+    const obj = JSON.parse(localStorage.getItem((clone.dataset.index) + 'PT'));
+    obj.name = clone.id;
+    obj.type = clone.dataset.type;
+    switch (obj.type) {
+        case 'leopard gecko':
+            clone.children[0].children[0].children[1].src = "./assets/images/leo.jpg";
+            clone.children[0].children[0].children[1].alt = "Leopard Gecko";
+            clone.children[0].children[0].children[1].title = "Leopard Gecko";
+            break;
+        case 'crested gecko':
+            clone.children[0].children[0].children[1].src = "./assets/images/crested.jpg";
+            clone.children[0].children[0].children[1].alt = "Crested Gecko";
+            clone.children[0].children[0].children[1].title = "Crested Gecko";
+            break;
+        case 'cat':
+            clone.children[0].children[0].children[1].src = "./assets/images/cat.jpg";
+            clone.children[0].children[0].children[1].alt = "Cat";
+            clone.children[0].children[0].children[1].title = "Cat";
+            break;
+        case 'dog':
+            clone.children[0].children[0].children[1].src = "./assets/images/dog.jpg";
+            clone.children[0].children[0].children[1].alt = "Dog";
+            clone.children[0].children[0].children[1].title = "Dog";
+            break;
+        case 'beta fish':
+            clone.children[0].children[0].children[1].src = "./assets/images/betta.jpg";
+            clone.children[0].children[0].children[1].alt = "Betta Fish";
+            clone.children[0].children[0].children[1].title = "Betta Fish Source:https://cdn.mos.cms.futurecdn.net/RY2EpSo74hvYXyAVpTN2Gg-1200-80.jpg";//This image says the source because the original picture is from the web.
+            break;
 
-  }//decides which img should go here
-  localStorage.setItem((clone.dataset.index + 'PT'), JSON.stringify(obj));
-  clone.children[0].hidden = false;
-  clone.children[1].hidden = true;
+    }//decides which img should go here
+    obj.petInfo = clone.children[1].children[0].children[10].value;//!!!
+    clone.children[0].children[1].classList = (obj.petInfo === "")? "": "info-box";
+    localStorage.setItem((clone.dataset.index + 'PT'), JSON.stringify(obj));
+    clone.children[0].setAttribute('style', 'display:flex;');
+    clone.children[1].hidden = true;
 }
 function petNameList() {
     const pets = readStorage();
     const names = [];
-    for (const pet of pets){
+    for (const pet of pets) {
         names.push(pet.name);
     }
     return names;
@@ -457,7 +488,7 @@ let currentTodoList = [];
 function addTask() {
     const petName = document.getElementById('task-name').value; // Corrected to match HTML input ID
     const selectedOption = document.getElementById('todo-options').value;
-    
+
     // Check if pet name is entered
     if (!petName) {
         alert("Please enter your pet's name.");
@@ -482,7 +513,7 @@ function renderTodoList() {
     console.log('Rendering Todo List')
     const todoListElement = document.getElementById('todo-list');
     todoListElement.innerHTML = ''; // Clear current list
-    
+
     if (currentTodoList.length === 0) {
         // If the list is empty, show a message
         todoListElement.innerHTML = '<li>No tasks to show.</li>';
@@ -492,15 +523,15 @@ function renderTodoList() {
     // Render the tasks in the currentTodoList
     currentTodoList.forEach((item, index) => {
         const taskElement = document.createElement('li');
-        taskElement.classList.add('todo-item');//???
-        
+        taskElement.classList.add('todo-item'); 
+
         taskElement.innerHTML = `
             <input type="checkbox" ${item.completed ? 'checked' : ''} 
             id="task-${index}" onclick="toggleCompletion(${index})">
             <span>${item.task}</span> <strong>for ${item.petName}</strong>
-        `;//???
-        
-        todoListElement.appendChild(taskElement);//???
+        `; 
+
+        todoListElement.appendChild(taskElement); 
     });
 }
 
