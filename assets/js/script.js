@@ -2,28 +2,28 @@
 function switchMyPets() {
     document.getElementById("myPets").hidden = false;
     document.getElementById("toDo").hidden = true;
-    document.getElementById("calender").hidden = true;
+    document.getElementById("calendar").hidden = true;
     document.getElementById("petCareGuide").hidden = true;
 }
 
 function switchToDo() {
     document.getElementById("myPets").hidden = true;
     document.getElementById("toDo").hidden = false;
-    document.getElementById("calender").hidden = true;
+    document.getElementById("calendar").hidden = true;
     document.getElementById("petCareGuide").hidden = true;
 }
 
-function switchCalender() {
+function switchcalendar() {
     document.getElementById("myPets").hidden = true;
     document.getElementById("toDo").hidden = true;
-    document.getElementById("calender").hidden = false;
+    document.getElementById("calendar").hidden = false;
     document.getElementById("petCareGuide").hidden = true;
 }
 
 function switchCarePetGuide() {
     document.getElementById("myPets").hidden = true;
     document.getElementById("toDo").hidden = true;
-    document.getElementById("calender").hidden = true;
+    document.getElementById("calendar").hidden = true;
     document.getElementById("petCareGuide").hidden = false;
 }
 
@@ -66,8 +66,8 @@ function readStorage() {
         case 'dog':
             clone.children[0].children[1].src = "./assets/images/dog.jpg";
             break;
-        case 'beta fish':
-            clone.children[0].children[1].src = "./assets/images/beta.jpg";
+        case 'betta fish':
+            clone.children[0].children[1].src = "./assets/images/betta.jpg";
             break;
 
     }//decides which img should go here
@@ -405,8 +405,8 @@ function resubmit(event) {
     case 'dog':
         clone.children[0].children[1].src = "./assets/images/dog.jpg";
         break;
-    case 'beta fish':
-        clone.children[0].children[1].src = "./assets/images/beta.jpg";
+    case 'betta fish':
+        clone.children[0].children[1].src = "./assets/images/betta.jpg";
         break;
 
   }//decides which img should go here
