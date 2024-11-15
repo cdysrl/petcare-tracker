@@ -3,7 +3,10 @@
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css">
     <link rel="stylesheet" href="./assets/style.css">
+    
 
     <meta charset="UTF-8">
     <title>Petcare Tracker</title>
@@ -16,6 +19,7 @@
         <h1>Petcare Tracker</h1>
     </header>
     <main>
+        <!-- This section is the list of tabs at the top of the page that switch which pages your on-->
         <section>
             <nav>
                 <data onclick="switchMyPets()">My Pets</data>
@@ -25,7 +29,9 @@
             </nav>
         </section>
         <!-- The four following Sections act as the diffrent tabs for the webpage -->
+         <!-- My Pets Section-->
         <section id="myPets"></section>
+        <!-- To-Do Section -->
         <section hidden="true" id="toDo">
             <h1 class="header">Daily To Do</h1>
             <div class="container">
@@ -48,7 +54,8 @@
                 <ul id="todo-list" class="todo-list"></ul>
             </div>
         </section>
-        <section hidden="true" id="calender">Calender</section>
+        <!-- Calendar Section -->
+        <section hidden="true" id="calendar">Calendar</section>
 
         <!-- Pet Care Guide Section -->
 
@@ -68,22 +75,30 @@
 
 
     </main>
-    <!-- Template html for the My Pets page-->>
+    <!-- Template html for the My Pets page-->
     <section style="display:none;">
+        <!-- This Template is used to show your pet on the My Pet page-->
         <div id="myPetClone" data-type="" , data-index="">
-            <div>
-                <h1></h1>
-                <img src="" width="200" height="200">
-                <div>
-                    <button onclick="editPet(event)">✍🏽</button>
-                    <button onclick="deletePet(event)">🗑️</button>
+            <div class="pure-g pet-box">
+                <div class="pure-u-1-5 pure-u-lg-1-5 pure-u-md-1 my-pet-img">
+                    <h1></h1>
+                    <img src="" width="200" height="200">
+                    <div>
+                        <button onclick="editPet(event)">✍🏽</button>
+                        <button onclick="deletePet(event)">🗑️</button>
+                    </div>
                 </div>
-            </div>
+                <div class="info-box"></div>
+            </div class="pure-u-4-5 pure-u-lg-4-5 pure-u-md-1">
+
             <div hidden>
                 <form onsubmit="resubmit(event)">
-                    <label for="petname">Pet's Name</label>
+                    <label for="petname">Pet's Name:</label>
+                    <br>
                     <input id="" type="text" name="petname">
+                    <br>
                     <label for="type">Type:</label>
+                    <br>
                     <select id="" name="type">
                         <option value="">Select an Animal</option>
                         <option value="leopard gecko">Leopard Gecko</option>
@@ -92,17 +107,24 @@
                         <option value="dog">Dog</option>
                         <option value="beta fish">Beta Fish</option>
                     </select>
+                    <br>
                     <label for="petInfo">Pet Description:</label>
-                    <input id='' type="text" name="petInfo">
+                    <br>
+                    <textarea id='' name="petInfo" rows="30" cols="100"></textarea>
+                    <br>
                     <button>Submit</button>
                 </form>
             </div>
         </div>
-        <div id="newPetForm">
+        <!-- This is the Template for the form that most first be filled out to register a new pet in the system-->
+        <div id="newPetForm" class="pet-box">
             <form onsubmit="petFormSubmit(event)">
-                <label for="petname">Pet's Name</label>
+                <label for="petname">Pet's Name:</label> 
+                <br>
                 <input id="name" type="text" name="petname">
+                <br>
                 <label for="type">Type:</label>
+                <br>
                 <select id="type" name="type">
                     <option value="">Select an Animal</option>
                     <option value="leopard gecko">Leopard Gecko</option>
@@ -111,12 +133,16 @@
                     <option value="dog">Dog</option>
                     <option value="beta fish">Beta Fish</option>
                 </select>
+                <br>
                 <label for="petInfo">Pet Description:</label>
-                <input id='petInfo' type="text" name="petInfo">
+                <br>
+                <textarea id='petInfo' name="petInfo" rows="30" cols="100"></textarea>
+                <br>
                 <button>Submit</button>
             </form>
         </div>
-        <div id="newButton" onclick="startForm(event)">
+        <!-- This is Template for the new+ button on mypets page-->
+        <div id="newButton" onclick="startForm(event)" class="pet-box">
             <h1>NEW➕</h1>
         </div>
     </section>
