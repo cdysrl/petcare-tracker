@@ -9,22 +9,24 @@
     
 
     <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400&display=swap" rel="stylesheet">
     <title>Petcare Tracker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/base-min.css"> -->
 </head>
 
-<body>
-    <header>
+<header>
+    <div class="title-box">
         <h1>Petcare Tracker</h1>
-    </header>
+    </div>
+</header>
     <main>
         <!-- This section is the list of tabs at the top of the page that switch which pages your on-->
         <section>
             <nav>
                 <data onclick="switchMyPets()">My Pets</data>
-                <data onclick="switchToDo()">ToDo</data>
-                <data onclick="switchCalender()">Calender</data>
+                <data onclick="switchToDo()">To-Do List</data>
+                <data onclick="switchcalendar()">Calendar</data>
                 <data onclick="switchCarePetGuide()">Pet Care Guide</data>
             </nav>
         </section>
@@ -33,10 +35,10 @@
         <section id="myPets"></section>
         <!-- To-Do Section -->
         <section hidden="true" id="toDo">
-            <h1 class="header">Daily To Do</h1>
+            <h1 class="header">Daily To-Do</h1>
             <div class="container">
-                <h2>Create Your Pets Todo List</h2>
-                <label for="task-name">This to do list is for:</label>
+                <h2>Create Your Pet's To-Do List</h2>
+                <label for="task-name">This to-do list is for:</label>
                 <input type="text" id="task-name" placeholder="Enter your pet's name" />
 
                 <label for="todo-options">Select Task Type:</label>
@@ -50,7 +52,7 @@
 
                 <button onclick="addTask()">Add to list!</button>
 
-                <h3>Your Todo List:</h3>
+                <h3>Your To-do List:</h3>
                 <ul id="todo-list" class="todo-list"></ul>
             </div>
         </section>
@@ -63,7 +65,7 @@
             <h2>Pet Care Guide</h2>
             <label for="petSpecies">Choose an animal:</label>
             <select id="petSpecies" onchange=displayContent()>
-                <option value="">-- Selet --</option>
+                <option value="">-- Select --</option>
                 <option value="cat">Cat</option>
                 <option value="dog">Dog</option>
                 <option value="leopardGecko">Leopard Gecko</option>
@@ -105,7 +107,7 @@
                         <option value="crested gecko">Crested Gecko</option>
                         <option value="cat">Cat</option>
                         <option value="dog">Dog</option>
-                        <option value="beta fish">Beta Fish</option>
+                        <option value="betta fish">Betta Fish</option>
                     </select>
                     <br>
                     <label for="petInfo">Pet Description:</label>
@@ -131,7 +133,7 @@
                     <option value="crested gecko">Crested Gecko</option>
                     <option value="cat">Cat</option>
                     <option value="dog">Dog</option>
-                    <option value="beta fish">Beta Fish</option>
+                    <option value="betta fish">Betta Fish</option>
                 </select>
                 <br>
                 <label for="petInfo">Pet Description:</label>
