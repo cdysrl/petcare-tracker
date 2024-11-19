@@ -38,22 +38,22 @@
             <h1 class="header">Daily To-Do</h1>
             <div class="container">
                 <h2>Create Your Pet's To-Do List</h2>
-                <label for="task-name">This to-do list is for:</label>
-                <input type="text" id="task-name" placeholder="Enter your pet's name" />
 
-                <label for="todo-options">Select Task Type:</label>
-                <select id="todo-options">
+                <label for="todoOptions">Select Task Type:</label>
+                <select id="todoOptions">
                     <option value="Fill food tray">Fill Food Tray</option>
                     <option value="Fill water bowl">Fill Water Bowl</option>
                     <option value="Clean litter box">Clean Litter Box</option>
                     <option value="Brush fur">Brush Fur</option>
                     <option value="Give medicine">Give Medicine</option>
                 </select>
+               <label for="petDropDown">Select your pet</label>   
+                <select id="petDropDown"></select>
 
                 <button onclick="addTask()">Add to list!</button>
 
                 <h3>Your To-do List:</h3>
-                <ul id="todo-list" class="todo-list"></ul>
+                <ul id="todoList" class="todoList"></ul>
             </div>
         </section>
         <!-- Calendar Section -->
@@ -151,7 +151,7 @@
     <footer>
         <p>Thank you for using PetCare!</p>
     </footer>
-    <script src="./assets/js/script.js"></script>
+    <script src="./assets/script.js"></script>
 </body>
 
 </html>
