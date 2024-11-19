@@ -12,7 +12,7 @@ body {
 
 header {
     height: 200px; 
-    background-image: url('http://www.psyeta.org/wp-content/uploads/2022/02/AdobeStock_481854656-1-678x381.jpeg');
+    background-image: url('./background.jpeg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
