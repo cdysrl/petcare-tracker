@@ -74,7 +74,7 @@ function petAdd(obj) {
             clone.children[0].children[0].children[1].alt = "Dog";
             clone.children[0].children[0].children[1].title = "Dog";
             break;
-        case 'beta fish':
+        case 'betta fish':
             clone.children[0].children[0].children[1].src = "./assets/images/betta.jpg";
             clone.children[0].children[0].children[1].alt = "Betta Fish";
             clone.children[0].children[0].children[1].title = "Betta Fish Source: https://cdn.mos.cms.futurecdn.net/RY2EpSo74hvYXyAVpTN2Gg-1200-80.jpg";
@@ -98,7 +98,7 @@ function newButton() {
     document.getElementById('myPets').appendChild(clone);
 }
 //The startForm function is the activated function when new+ button is clicked that replaces it with the form
-function startForm(event) {
+function startForm(_event) {
     const self = document.getElementById("newButton1");
     const clone = document.getElementById("newPetForm").cloneNode(true);
     clone.id = 'newPetForm1';
@@ -473,76 +473,122 @@ function resubmit(event) {
     clone.children[0].setAttribute('style', 'display:flex;');
     clone.children[1].hidden = true;
 }
+
+// array of pet names from local storage 
 function petNameList() {
     const pets = readStorage();
     const names = [];
-    for (const pet of pets) {
+    for (const pet of pets){
         names.push(pet.name);
     }
     return names;
 }
+
 //ToDo page's java script
 let currentTodoList = [];
 
 // Function to add task to the list
 function addTask() {
-    const petName = document.getElementById('task-name').value; // Corrected to match HTML input ID
-    const selectedOption = document.getElementById('todo-options').value;
-
+    const petName = document.getElementById('taskName').value; // Corrected to match HTML input ID
+    const selectedOption = document.getElementById('todoOptions').value;
+    
     // Check if pet name is entered
     if (!petName) {
         alert("Please enter your pet's name.");
         return;
     }
+}
+// function petNameList() {
+//     const pets = readStorage() || [];
+//     localStorage.setItem("petname", JSON.stringify(pets));
+//     console.log(petNames); // Log the pet names to check if they are retrieved correctly
+//     return pets.map(pet => pet.name);
+// }
 
+function populateDropdown() {
+    const petNames = petNameList();
+    console.log("Pet Names:", petNames); // Log the pet names before populating
+    const dropdown = document.getElementById('petDropDown');
+
+    // dropdown.innerHTML = '<option value="">Select an Animal</option>';
+    dropdown.innerHTML = '';
+
+    petNames.forEach(name => {
+        const option = document.createElement('option');
+        option.value = name;
+        option.textContent = name;
+        dropdown.appendChild(option);
+    });
+}
+
+function readStorage2() {
+    const petsData = localStorage.getItem("pets");
+    return petsData ? JSON.parse(petsData) : [];
+}
+
+//  add task to the list
+function addTask() {
+    const petName = document.getElementById('petDropDown').value; 
+    const selectedOption = document.getElementById('todoOptions').value;
+    
     // Create a new task object
     const Task = {
         task: selectedOption,
         petName: petName,
-        completed: false // Initially, tasks are not completed
+        completed: false
     };
 
     // Add task to the todo list
-    currentTodoList.push(addTask);
+    currentTodoList.push(Task);
     saveToLocalStorage();
     renderTodoList();
 }
 
-// Function to render the tasks dynamically
+//  render the tasks dynamically
 function renderTodoList() {
-    console.log('Rendering Todo List')
-    const todoListElement = document.getElementById('todo-list');
+    console.log('Rendering todoList')
+    const todoListElement = document.getElementById('todoList');
     todoListElement.innerHTML = ''; // Clear current list
-
-    if (currentTodoList.length === 0) {
-        // If the list is empty, show a message
-        todoListElement.innerHTML = '<li>No tasks to show.</li>';
-        return;
-    }
 
     // Render the tasks in the currentTodoList
     currentTodoList.forEach((item, index) => {
         const taskElement = document.createElement('li');
-        taskElement.classList.add('todo-item'); 
+        taskElement.classList.add('todoItem');
 
-        taskElement.innerHTML = `
-            <input type="checkbox" ${item.completed ? 'checked' : ''} 
-            id="task-${index}" onclick="toggleCompletion(${index})">
-            <span>${item.task}</span> <strong>for ${item.petName}</strong>
-        `; 
+        // Create the checkbox input
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.id = `task-${index}`;
+        checkbox.checked = item.completed;
+        checkbox.onclick = () => toggleCompletion(index);
 
-        todoListElement.appendChild(taskElement); 
+        // Create the task description element
+        const taskDescription = document.createElement('span');
+        taskDescription.textContent = item.task; 
+
+        // Create the pet name element
+        const petNameElement = document.createElement('strong');
+        petNameElement.textContent = ` for ${item.petName}`;
+
+        // Append the elements together
+        taskElement.appendChild(checkbox);
+        taskElement.appendChild(taskDescription);
+        taskElement.appendChild(petNameElement);
+
+        // Append the task element to the list
+        todoListElement.appendChild(taskElement);
     });
 }
 
-// Function to toggle task completion
+
+//  toggle task completion
 function toggleCompletion(index) {
     currentTodoList[index].completed = !currentTodoList[index].completed;
     saveToLocalStorage();
     renderTodoList();
 }
 
-// Function to save the todo list to localStorage
+//  save the todo list to localStorage
 function saveToLocalStorage() {
     const todoData = {
         tasks: currentTodoList
@@ -550,15 +596,17 @@ function saveToLocalStorage() {
     localStorage.setItem('todoData', JSON.stringify(todoData));
 }
 
-// Function to load the todo list from localStorage
+//  load the todo list from localStorage
 function loadFromLocalStorage() {
     const todoData = JSON.parse(localStorage.getItem('todoData'));
 
     if (todoData) {
         currentTodoList = todoData.tasks;
     }
-    renderTodoList(); // Render the list after loading
+    renderTodoList();
+    populateDropdown();
 }
 
 // Call loadFromLocalStorage when the page is loaded
 window.onload = loadFromLocalStorage;
+

@@ -2,35 +2,24 @@
 
     ## Description
 
-    Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
-
-    - What was your motivation?
-    - Why did you build this project? (Note: the answer is not "Because it was a homework assignment."
-    - What problem does it solve?
-    - What did you learn?
+    This web application was developed to help pet owners keep track of their pets and any of their care needs. It was designed with having a pet sitter in mind, 
+    when the owner is unavailable. The application gives the ability to remind the owner or petsitters of tasks and their frequencies as needed (e.g. medications, feeding, grooming)
+    The application helps solve the difficulty in organization for owners with multiple pets that have a variety of care needs.
 
     ## Installation
 
-    What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
-
     Web browswer with internet connection.
+    <add the git pages url>
 
     ## Usage
-    Provide instructions and examples for use. Include screenshots as needed.
-
-    To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
-
-        ```md
-        ![alt text](assets/images/screenshot.png)
-        ```
-        
+            
     My Pets Section -
 
     1. Click New+
-    2. Enter Pet's Name, animal type
+    2. Enter Pet's Name (required), animal type (required), and fill out a pet description (optional)
     3. Submit
+        A default image and the pet's name will appear in a list with two options to edit or remove the pet from the list.
 
-    A default image and the pet's name will appear in a list with two options to edit or remove the pet from the list.
 
     To Do Section -
 
@@ -40,12 +29,14 @@
         The task with the pet's name appears in an unordered list with checkboxes to manage task completion.
 
     Calendar Section -
-        Currently non-functional
+
+    Currently non-functional (future state)
 
     Pet Care Guide Section - 
+
     1. Select an animal from dropdown
         A default image and three general care / information about selected animal appears.
-
+        A hyperlink with source and additional information is displayed.
 
 
     ## Credits
@@ -66,17 +57,24 @@
 
     Third Party Assets - 
 
+    Google Fonts API
+    - Fredoka
+    - Quicksand
+    
+    CSS Framework
+    - Pure CSS
+
 
     Project Development References - 
 
     https://developer.mozilla.org/en-US/
-
+    
 
     ## License
 
     MIT License
 
-    Copyright (c) [year] [fullname]
+    Copyright (c) [2024] [petcare-tracker]
 
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
@@ -111,3 +109,9 @@
 
     Pet Care Guides
         Provides a drop-down menu of animals to choose from. Once an animal is selected an image will display with three general care guides / information about the selected animal. Also includes a link to more information / resources.
+
+
+    ## Image Sources
+
+        futurecdn.net
+        wikimedia.org
