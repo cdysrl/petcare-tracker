@@ -11,6 +11,7 @@ function switchToDo() {
     document.getElementById("toDo").hidden = false;
     document.getElementById("calendar").hidden = true;
     document.getElementById("petCareGuide").hidden = true;
+    populateDropdown();
 }
 
 function switchcalendar() {
@@ -528,6 +529,7 @@ function readStorage2() {
 
 //  add task to the list
 function addTask() {
+    
     const petName = document.getElementById('petDropDown').value; 
     const selectedOption = document.getElementById('todoOptions').value;
     
@@ -537,6 +539,12 @@ function addTask() {
         petName: petName,
         completed: false
     };
+
+    // Check if pet name is entered
+    if (!petName) {
+        alert("Please enter your pet's name.");
+        return;
+    }
 
     // Add task to the todo list
     currentTodoList.push(Task);
