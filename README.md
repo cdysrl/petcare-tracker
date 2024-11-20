@@ -9,7 +9,8 @@
     ## Installation
 
     Web browswer with internet connection.
-    <add the git pages url>
+    https://cdysrl.github.io/petcare-tracker/
+   
 
     ## Usage
             
